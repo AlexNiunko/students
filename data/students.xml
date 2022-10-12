@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<students>
+    <student id="1" login="MitarAlex">
+             <faculty> mmf</faculty>
+             <name>Mitar Alex</name>
+             <telephone> 22345134</telephone>
+             <address>
+                    <country> Belarus</country>
+                    <city>  Grodno </city>
+                    <street> Lenina </street>
+            </address>
+    </student>
+    <student id="2" login="MitarAlex">
+        <faculty> feu</faculty>
+        <name>Pupkin Misha</name>
+        <telephone> 88238456 </telephone>
+        <address>
+            <country> Belarus</country>
+            <city>  Grodno </city>
+            <street> Gorkogo </street>
+        </address>
+    </student>
+</students>
