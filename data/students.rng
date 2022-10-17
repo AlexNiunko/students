@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar ns="" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+    <start>
+        <element name="students">
+            <oneOrMore>
+                <element name="student">
+                    <attribute name="id">
+                        <data type="integer"/>
+                    </attribute>
+                    <attribute name="login">
+                        <data type="NCName"/>
+                    </attribute>
+                    <element name="faculty">
+                        <data type="NCName"/>
+                    </element>
+                    <element name="name">
+                        <text/>
+                    </element>
+                    <element name="telephone">
+                        <data type="integer"/>
+                    </element>
+                    <element name="address">
+                        <element name="country">
+                            <data type="NCName"/>
+                        </element>
+                        <element name="city">
+                            <data type="NCName"/>
+                        </element>
+                        <element name="street">
+                            <data type="NCName"/>
+                        </element>
+                    </element>
+                </element>
+            </oneOrMore>
+        </element>
+    </start>
+</grammar>
