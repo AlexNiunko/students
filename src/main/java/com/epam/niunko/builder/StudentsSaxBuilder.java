@@ -1,7 +1,6 @@
 package com.epam.niunko.builder;
 
 import com.epam.niunko.entity.Student;
-import com.epam.niunko.entity.StudentHandler;
 import com.epam.niunko.validator.StudentErrorHandler;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -48,6 +47,7 @@ public class StudentsSaxBuilder   {
     public void buildSetStudent(String fileName) {
         try {
             reader.parse(fileName);
+            students= sh.getStudents();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (SAXException e) {

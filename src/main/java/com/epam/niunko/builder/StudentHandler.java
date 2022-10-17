@@ -1,5 +1,7 @@
-package com.epam.niunko.entity;
+package com.epam.niunko.builder;
 
+import com.epam.niunko.builder.StudentEnum;
+import com.epam.niunko.entity.Student;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -51,7 +53,7 @@ public class StudentHandler extends DefaultHandler {
 
 
     public void characters(char[] ch, int start, int length) throws SAXException {
-        String s = new String(ch, start, length).trim();
+        String s=new String(ch,start,length);
         if (currentEnum != null) {
             switch (currentEnum) {
                 case NAME:

@@ -1,4 +1,4 @@
-package com.epam.niunko.entity;
+package com.epam.niunko.builder;
 
 public enum StudentEnum {
     STUDENTS("students"),
@@ -12,7 +12,7 @@ public enum StudentEnum {
     ADDRESS("address");
     private String value;
 
-    private StudentEnum(String value) {
+    StudentEnum(String value) {
         this.value = value;
     }
 
