@@ -10,7 +10,7 @@
                     <street> Lenina </street>
             </address>
     </student>
-    <student id="2" login="MitarAlex">
+    <student id="2" login="Pupkin Misha">
         <faculty> feu</faculty>
         <name>Pupkin Misha</name>
         <telephone> 88238456 </telephone>
