@@ -1,6 +1,5 @@
 package com.epam.niunko.builder;
 
-import com.epam.niunko.builder.StudentEnum;
 import com.epam.niunko.entity.Student;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -8,20 +7,23 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import java.util.EnumSet;
 import java.util.HashSet;
-import java.util.Locale;
 import java.util.Set;
 
 public class StudentHandler extends DefaultHandler {
 
     private Set<Student> students;
+
     private Student current;
+
     private StudentEnum currentEnum;
+
     private EnumSet<StudentEnum> withText;
+
     private static final String ELEMENT_STUDENT = "student";
 
     public StudentHandler() {
         students = new HashSet<>();
-        withText = EnumSet.range(StudentEnum.NAME, StudentEnum.STREET);
+        withText = EnumSet.range(StudentEnum.FACULTY, StudentEnum.STREET);
     }
 
     public Set<Student> getStudents() {
@@ -32,14 +34,14 @@ public class StudentHandler extends DefaultHandler {
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
         if (ELEMENT_STUDENT.equals(qName)) {
             current = new Student();
-            current.setLogin(attributes.getValue(0));
+            current.setId(attributes.getValue(0));
             if (attributes.getLength() == 2) {
-                current.setFaculty(attributes.getValue(1));
-            } else {
-                StudentEnum temp = StudentEnum.valueOf(qName.toUpperCase(Locale.ROOT));
-                if (withText.contains(temp)) {
-                    currentEnum = temp;
-                }
+                current.setLogin(attributes.getValue(1));
+            }
+        } else {
+            StudentEnum temp = StudentEnum.valueOf(qName.toUpperCase());
+            if (withText.contains(temp)) {
+                currentEnum = temp;
             }
         }
     }
@@ -53,28 +55,31 @@ public class StudentHandler extends DefaultHandler {
 
 
     public void characters(char[] ch, int start, int length) throws SAXException {
-        String s=new String(ch,start,length);
+        String data=new String(ch,start,length).strip();
         if (currentEnum != null) {
             switch (currentEnum) {
+                case FACULTY:
+                    current.setFaculty(data);
+                    break;
                 case NAME:
-                    current.setName(s);
+                    current.setName(data);
                     break;
                 case TELEPHONE:
-                    current.setTelephone(Integer.parseInt(s));
-                    break;
-                case STREET:
-                    current.getAddress().setStreet(s);
-                    break;
-                case CITY:
-                    current.getAddress().setCity(s);
+                    current.setTelephone(Integer.parseInt(data));
                     break;
                 case COUNTRY:
-                    current.getAddress().setCountry(s);
+                    current.getAddress().setCountry(data);
+                    break;
+                case CITY:
+                    current.getAddress().setCity(data);
+                    break;
+                case STREET:
+                    current.getAddress().setStreet(data);
                     break;
                 default:
                     throw new EnumConstantNotPresentException(currentEnum.getDeclaringClass(), currentEnum.name());
             }
         }
-        currentEnum = null;
+        currentEnum=null;
     }
 }

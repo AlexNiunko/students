@@ -2,8 +2,10 @@ package com.epam.niunko.builder;
 
 public enum StudentEnum {
     STUDENTS("students"),
-    FACULTY("faculty"),
     STUDENT("student"),
+    ID("id"),
+    LOGIN("login"),
+    FACULTY("faculty"),
     NAME("name"),
     TELEPHONE("telephone"),
     COUNTRY("country"),

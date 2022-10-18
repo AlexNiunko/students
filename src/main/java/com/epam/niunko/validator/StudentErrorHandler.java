@@ -1,7 +1,6 @@
 package com.epam.niunko.validator;
 
 
-import com.sun.istack.internal.SAXParseException2;
 import org.apache.log4j.FileAppender;
 import org.apache.log4j.Logger;
 import org.apache.log4j.SimpleLayout;

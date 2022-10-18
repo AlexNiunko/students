@@ -1,34 +1,39 @@
 package com.epam.niunko.entity;
 
+import java.util.StringJoiner;
+
 public class Student {
 
+private String id;
 private String login;
-private String name;
 private String faculty;
+private String name;
 private int telephone;
 private Address address=new Address();
 
-    public Student(String login, String name, String faculty, int telephone, Address address) {
+    public Student() {
+        this.id = id;
         this.login = login;
-        this.name = name;
         this.faculty = faculty;
+        this.name = name;
         this.telephone = telephone;
         this.address = address;
     }
-    public Student(){
 
+    public String getId() {
+        return id;
     }
 
     public String getLogin() {
         return login;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public String getFaculty() {
         return faculty;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getTelephone() {
@@ -39,16 +44,20 @@ private Address address=new Address();
         return address;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public void setLogin(String login) {
         this.login = login;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public void setFaculty(String faculty) {
         this.faculty = faculty;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setTelephone(int telephone) {
@@ -62,12 +71,14 @@ private Address address=new Address();
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Student{");
-        sb.append("login='").append(login).append('\'');
-        sb.append(", name='").append(name).append('\'');
+        sb.append("id='").append(id).append('\'');
+        sb.append(", login='").append(login).append('\'');
         sb.append(", faculty='").append(faculty).append('\'');
+        sb.append(", name='").append(name).append('\'');
         sb.append(", telephone=").append(telephone);
         sb.append(", address=").append(address);
         sb.append('}');
+        sb.append("\n");
         return sb.toString();
     }
 }
