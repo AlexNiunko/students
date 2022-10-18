@@ -3,7 +3,7 @@
     <student id="1" login="MitarAlex">
              <faculty> mmf</faculty>
              <name>Mitar Alex</name>
-             <telephone> 22345134</telephone>
+             <telephone>22345134</telephone>
              <address>
                     <country> Belarus</country>
                     <city>  Grodno </city>
@@ -13,7 +13,7 @@
     <student id="2" login="Pupkin Misha">
         <faculty> feu</faculty>
         <name>Pupkin Misha</name>
-        <telephone> 88238456 </telephone>
+        <telephone>88238456</telephone>
         <address>
             <country> Belarus</country>
             <city>  Grodno </city>
